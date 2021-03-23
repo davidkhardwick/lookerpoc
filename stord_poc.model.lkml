@@ -21,4 +21,17 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 
 explore: spinrite_report {}
 
-explore: order_items {}
+explore: order_items {
+######## EXAMPLE: USER ATTRIBUTE TO FILTER CONTENT ##################
+  # access_filter: {
+  #   field: order_items.order_type
+  #   user_attribute: order_type_demo_filter
+  # }
+
+######## EXAMPLE: JOIN TO ORDERS TABLE ################
+  # join: orders {
+  #   type: left_outer
+  #   relationship: many_to_one
+  #   sql_on: ${orders.order_id} = ${order_items.order_id} ;;
+  # }
+}
